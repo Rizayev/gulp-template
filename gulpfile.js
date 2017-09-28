@@ -63,9 +63,9 @@ gulp.task('watch', ['browserSync', 'css-libs', 'scripts', 'img'], function () {
 gulp.task('build', ['clean', 'sass', 'scripts'], function () {
 
     var buildCss = gulp.src([
-        'app/css/main.css',
-        'app/css/libs.min.css',
+        'app/css/*.css',
     ])
+        .pipe(cssnano())
         .pipe(gulp.dest('dist/css'));
 
     var buildFonts = gulp.src('app/fonts/**/*')
